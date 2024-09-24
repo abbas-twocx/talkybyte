@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: Params }) {
                         .join(" ");
                     };
                     return (
-                      <div className="text-[12px] px-[8px] py-[4px] bg-gradient-to-bl rounded-full text-white from-blue-600 to-primary">
+                      <div key={index} className="text-[12px] px-[8px] py-[4px] bg-gradient-to-bl rounded-full text-white from-blue-600 to-primary">
                         {capitalizWords(cat.uid)}
                       </div>
                     );
