@@ -112,8 +112,9 @@ const Blogs = async ({ slice }: BlogsProps): Promise<JSX.Element> => {
                     {/* <div className="line-clamp-3 text-ellipsis mt-[8px]">
                       <PrismicRichText field={blog.data.body} />
                     </div> */}
+                    {/* after:absolute after:inset-0 after:w-full after:h-full */}
                     <PrismicNextLink
-                      className="after:absolute after:inset-0 after:w-full after:h-full no-underline self-end duration-500 ease-in-out"
+                      className="no-underline self-end duration-500 ease-in-out"
                       href={`/blog/${blog.uid}`}
                     >
                       <BsArrowUpRightCircleFill
