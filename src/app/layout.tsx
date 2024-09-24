@@ -11,10 +11,8 @@ import {
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
-import ButtonLink from "@/components/ButtonLink";
-import clsx from "clsx";
-import Image from "next/image";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,6 +33,7 @@ export default async function RootLayout({
         {children}
         <PrismicPreview repositoryName={repositoryName} />
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
