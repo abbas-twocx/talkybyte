@@ -30,6 +30,15 @@
             },
             "thumbnails": []
           }
+        },
+        "image_left": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Left",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {},
@@ -72,6 +81,15 @@
             "label": "Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "image_left": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Left",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
           }
         }
       },

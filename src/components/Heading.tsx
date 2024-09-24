@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 
 type HeadingProps = {
-  as?: "h1" | "h2" | "h3";
+  as?: "h1" | "h2" | "h3" | "h4";
   size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   children?: ReactNode;

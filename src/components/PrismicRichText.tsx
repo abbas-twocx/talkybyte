@@ -9,21 +9,42 @@ import { Heading } from "./Heading";
 
 const defaultComponents: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <Heading as="h1" className="mb-7 mt-12 first:mt-0 last:mb-0">
+    <Heading
+      as="h1"
+      size="xl"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 tracking-tighter"
+    >
       {children}
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="md" className="mb-7 mt-12 first:mt-0 last:mb-0">
+    <Heading
+      as="h2"
+      size="lg"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 tracking-tighter"
+    >
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className="mb-7 mt-12 first:mt-0 last:mb-0">
+    <Heading
+      as="h3"
+      size="md"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 tracking-tighter"
+    >
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => <p className="mb-7 last:mb-0">{children}</p>,
+  heading4: ({ children }) => (
+    <Heading
+      as="h4"
+      size="sm"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 tracking-tighter"
+    >
+      {children}
+    </Heading>
+  ),
+  paragraph: ({ children }) => <p className="mb-7 last:mb-0 text-dark-primary/80 text-b16">{children}</p>,
   oList: ({ children }) => (
     <ol className="mb-7 pl-4 last:mb-0 md:pl-6">{children}</ol>
   ),
