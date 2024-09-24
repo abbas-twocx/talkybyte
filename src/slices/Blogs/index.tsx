@@ -2,8 +2,9 @@ import { Bounded } from "@/components/Bounded";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { createClient } from "@/prismicio";
 import { Content } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
+import Link from "next/link";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 
 /**
@@ -77,12 +78,12 @@ const Blogs = async ({ slice }: BlogsProps): Promise<JSX.Element> => {
                             return (
                               <>
                                 <span
-                                  className="text-b14 font-medium"
+                                  className="text-[12px] font-medium"
                                   key={index}
                                 >
                                   {capitalizWords(category.uid)}
                                 </span>
-                                <span className="last:hidden text-dark-primary/30">
+                                <span className="last:hidden text-dark-primary/30 text-[12px]">
                                   |
                                 </span>
                               </>
@@ -90,16 +91,36 @@ const Blogs = async ({ slice }: BlogsProps): Promise<JSX.Element> => {
                           })}
                         </div>
                       )}
-                    <h6 className="text-h6-m lg:text-h6 tracking-tighter font-medium mt-[12px]">
+                    <h6 className="text-h6-m lg:text-h6 tracking-tighter font-medium mt-[12px] text-balance">
                       {blog.data.heading}
                     </h6>
-                    <div className="line-clamp-3 text-ellipsis mt-[8px]">
-                      <PrismicRichText field={blog.data.body} />
+                    <div className="flex flex-row gap-[8px] items-center mt-[8px]">
+                      <PrismicNextImage
+                        field={blog.data.author_image}
+                        width={34}
+                        height={34}
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-b14 text-dark-primary/70">
+                          {blog.data.author}
+                        </span>
+                        <span className="text-b14 text-dark-primary/70">
+                          {blog.data.date}
+                        </span>
+                      </div>
                     </div>
-                    <BsArrowUpRightCircleFill
-                      className="text-dark-primary group-hover:text-primary group-hover:translate-x-5 ease-in-out duration-500 mt-[12px]"
-                      size={32}
-                    />
+                    {/* <div className="line-clamp-3 text-ellipsis mt-[8px]">
+                      <PrismicRichText field={blog.data.body} />
+                    </div> */}
+                    <PrismicNextLink
+                      className="after:absolute after:inset-0 after:w-full after:h-full no-underline self-end duration-500 ease-in-out"
+                      href={`/blog/${blog.uid}`}
+                    >
+                      <BsArrowUpRightCircleFill
+                        className="text-dark-primary self-end group-hover:text-primary group-hover:-translate-x-5 ease-in-out duration-500 mt-[12px]"
+                        size={32}
+                      />
+                    </PrismicNextLink>
                   </div>
                 </div>
               );

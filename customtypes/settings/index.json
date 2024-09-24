@@ -15,6 +15,14 @@
           "single": "heading1"
         }
       },
+      "site_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Site Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "copyright": {
         "type": "Text",
         "config": {
