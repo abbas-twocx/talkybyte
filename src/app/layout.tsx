@@ -28,7 +28,7 @@ export default async function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg"></link>
       </head>
-      <body className="overflow-x-hidden antialiased">
+      <body className="">
         <Header />
         {children}
         <PrismicPreview repositoryName={repositoryName} />

@@ -11,6 +11,9 @@ import { isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { BsFacebook } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa6";
+import dynamic from "next/dynamic";
+
+// const Socials = dynamic(() => import("./socials"), { ssr: false });
 
 type Params = { uid: string };
 interface Category {
@@ -31,6 +34,8 @@ export default async function Page({ params }: { params: Params }) {
   const page = await client
     .getByUID("blog", params.uid)
     .catch(() => notFound());
+
+  const currentUrl = `https://talkybyte.com/blog/${params.uid}`;
 
   const blogBanner = page.data.image;
   const categories = page.data.categories;
@@ -53,14 +58,17 @@ export default async function Page({ params }: { params: Params }) {
                         .join(" ");
                     };
                     return (
-                      <div key={index} className="text-[12px] px-[8px] py-[4px] bg-gradient-to-bl rounded-full text-white from-blue-600 to-primary">
+                      <div
+                        key={index}
+                        className="text-[12px] px-[8px] py-[4px] bg-gradient-to-bl rounded-full text-white from-blue-600 to-primary"
+                      >
                         {capitalizWords(cat.uid)}
                       </div>
                     );
                   })}
                 </div>
               )}
-              <div className="max-w-full w-full text-dark-primary">
+              <div className="max-w-full w-full text-dark-primary hover:text-primary">
                 <h1 className="text-h1-m lg:text-h1 tracking-tighter mb-[12px] leading-[120%]">
                   {page.data.heading}
                 </h1>
@@ -83,12 +91,10 @@ export default async function Page({ params }: { params: Params }) {
                   </span>
                 </div>
               </div>
-              {/* <div className="flex flex-row items-center gap-2">
-                <BsFacebook
-                  className="text-dark-primary self-end hover:text-primary hover:-translate-x-5 ease-in-out duration-500 mt-[12px]"
-                  size={32}
-                />{" "}
-              </div> */}
+              {/* <Socials
+                url={currentUrl}
+                title={page.data.meta_title || "Default Title"}
+              /> */}
             </div>
             <div className="col-span-1 rounded-lg max-w-full w-full max-h-[420px] h-[420px]">
               {isFilled.image(blogBanner) && (
@@ -122,6 +128,12 @@ export async function generateMetadata({
   return {
     title: page.data.meta_title,
     description: page.data.meta_description,
+    openGraph: {
+      title: page.data.meta_title ?? undefined,
+      images: [{ url: page.data.meta_image.url ?? "" }],
+      siteName: "TalkyBye",
+      url: "https://talkybyte.com",
+    },
   };
 }
 
