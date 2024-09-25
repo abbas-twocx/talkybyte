@@ -50,12 +50,12 @@ const Blogs = async ({ slice }: BlogsProps): Promise<JSX.Element> => {
             {blogs.map((blog, index) => {
               return (
                 <PrismicNextLink
+                key={index}
                   className="no-underline duration-500 ease-in-out"
                   href={`/blog/${blog.uid}`}
                 >
                   <div
                     className="group rounded-lg p-4 border border-dark-primary/5 hover:shadow-xl duration-500 ease-in-out cursor-pointer"
-                    key={index}
                   >
                     <div className="w-full max-h-[260px] h-[260px] relative">
                       <PrismicNextImage
