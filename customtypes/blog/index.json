@@ -80,6 +80,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "contact_card": {
+              "type": "SharedSlice"
+            },
             "blogs": {
               "type": "SharedSlice"
             },

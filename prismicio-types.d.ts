@@ -20,6 +20,7 @@ export interface BlogDocumentDataCategoriesItem {
 }
 
 type BlogDocumentDataSlicesSlice =
+  | ContactCardSlice
   | BlogsSlice
   | CallToActionSlice
   | TextWithImageSlice
@@ -251,6 +252,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ContactCardSlice
   | CallToActionSlice
   | BlogsSlice
   | HeroSlice
@@ -539,6 +541,92 @@ type CallToActionSliceVariation = CallToActionSliceDefault;
 export type CallToActionSlice = prismic.SharedSlice<
   "call_to_action",
   CallToActionSliceVariation
+>;
+
+/**
+ * Primary content in *ContactCard → Default → Primary*
+ */
+export interface ContactCardSliceDefaultPrimary {
+  /**
+   * Heading field in *ContactCard → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_card.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body field in *ContactCard → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_card.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Button Text field in *ContactCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_card.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *ContactCard → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_card.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Icon field in *ContactCard → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Call
+   * - **API ID Path**: contact_card.default.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<"Call" | "Mail", "filled">;
+}
+
+/**
+ * Default variation for ContactCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactCardSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactCard*
+ */
+type ContactCardSliceVariation = ContactCardSliceDefault;
+
+/**
+ * ContactCard Shared Slice
+ *
+ * - **API ID**: `contact_card`
+ * - **Description**: ContactCard
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactCardSlice = prismic.SharedSlice<
+  "contact_card",
+  ContactCardSliceVariation
 >;
 
 /**
@@ -1085,6 +1173,10 @@ declare module "@prismicio/client" {
       CallToActionSliceDefaultPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
+      ContactCardSlice,
+      ContactCardSliceDefaultPrimary,
+      ContactCardSliceVariation,
+      ContactCardSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

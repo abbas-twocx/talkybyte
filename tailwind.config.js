@@ -26,9 +26,9 @@ module.exports = {
         b16: ['16px', { lineHeight: '150%' }],
         b14: ['14px', { lineHeight: '150%' }],
 
-        'h1-m': ['42px', { lineHeight: '120%' }],
-        'h2-m': ['36px', { lineHeight: '120%' }],
-        'h3-m': ['30px', { lineHeight: '120%' }],
+        'h1-m': ['38px', { lineHeight: '120%' }],
+        'h2-m': ['34px', { lineHeight: '120%' }],
+        'h3-m': ['28px', { lineHeight: '120%' }],
         'h4-m': ['26px', { lineHeight: '120%' }],
         'h5-m': ['22px', { lineHeight: '120%' }],
         'h6-m': ['20px', { lineHeight: '120%' }],
