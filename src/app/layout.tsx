@@ -26,6 +26,10 @@ export default async function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        ></meta>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg"></link>
       </head>
       <body className="">

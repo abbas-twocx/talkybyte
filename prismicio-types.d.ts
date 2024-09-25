@@ -401,6 +401,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   poweredby_logo: prismic.ImageField<never>;
+
+  /**
+   * Robots Text field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.robots_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  robots_text: prismic.RichTextField;
 }
 
 /**

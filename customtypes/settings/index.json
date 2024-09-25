@@ -44,6 +44,15 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "robots_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Robots Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
       }
     }
   }
