@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const dynamicBlogs = await client.getAllByType("blog");
 
   const pageRoutes = dynamicPages.map((page) => ({
-    url: `${baseUrl} ${page.url}`,
+    url: `${baseUrl}${page.url}`,
     lastModified: new Date().toISOString(),
   }));
 
