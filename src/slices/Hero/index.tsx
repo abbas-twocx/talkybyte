@@ -12,9 +12,10 @@ const Hero = ({ slice }: HeroProps) => {
   const backgroundImage = slice.primary.backgroundImage;
 
   return (
-    <section className="relative">
-      <Bounded yPadding="base" className="relative">
-        {/* <div className="w-full h-full absolute bottom-0 top-0 left-0 right-0 bg-gradient-to-t from-primary/15 to-white -z-10" /> */}
+    <section 
+      className="relative min-h-[50vh] lg:min-h-[66vh]"
+    >
+      <Bounded yPadding="sm" className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-center lg:justify-between text-balance gap-8 text-center lg:text-start">
           <div className="flex flex-col col-span-1 lg:justify-start justify-center lg:items-start items-center">
             <div className="max-w-2xl text-dark-primary">

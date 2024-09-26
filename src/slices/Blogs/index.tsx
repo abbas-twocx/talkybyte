@@ -34,6 +34,7 @@ const Blogs = async ({ slice }: BlogsProps): Promise<JSX.Element> => {
 
   return (
     <section
+      id="blogs"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
